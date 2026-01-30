@@ -1,0 +1,6 @@
+resources:
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+patches:
+  - path: argo-cm.yml
+  - path: argo-rbac-cm.yml
