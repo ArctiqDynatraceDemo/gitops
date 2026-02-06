@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: easytrade
+  name: easytrade-dev
   annotations:
     argo.octopus.com/project: "easytrade"
     argo.octopus.com/environment: "dev"
