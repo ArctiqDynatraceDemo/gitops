@@ -1,0 +1,45 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: easytrade-easytrade-ephemeral-655352fc-2
+
+resources:
+- ../../base
+
+images:
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/accountservice"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/aggregator-service"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/broker-service"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/calculationservice"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/db"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/engine"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/feature-flag-service"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/frontend"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/frontendreverseproxy"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/loadgen"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/loginservice"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/manager"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/offerservice"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/pricing-service"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/problem-operator"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/rabbitmq"
+    newTag: "latest"
+  - name: "ghcr.io/arctiqdynatracedemo/easytrade/third-party-service"
+    newTag: "latest"
