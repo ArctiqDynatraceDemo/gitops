@@ -1,4 +1,4 @@
 namespace: argocd
 
 resources:
-  - easytrade
+  - easytrade.yml
