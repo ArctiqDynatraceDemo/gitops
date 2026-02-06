@@ -2,11 +2,14 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: easytrade
+  annotations:
+    argo.octopus.com/project: "easytrade"
+    argo.octopus.com/environment: "dev"
 spec:
   project: default
   source:
-    path: kubernetes-manifests/release
-    repoURL: 'https://github.com/ArctiqDynatraceDemo/easytrade'
+    path: easytrade/dev
+    repoURL: 'https://github.com/ArctiqDynatraceDemo/gitops'
     targetRevision: HEAD
   destination:
     namespace: default
