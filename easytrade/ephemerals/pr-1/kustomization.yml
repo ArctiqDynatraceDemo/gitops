@@ -13,7 +13,7 @@ images:
 - name: ghcr.io/arctiqdynatracedemo/easytrade/calculationservice
   newTag: latest
 - name: ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service
-  newTag: imageFrom('ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service').Tag
+  newTag: pr-1.5a699f419799c843805d3f0a776aeecc8778bfab
 - name: ghcr.io/arctiqdynatracedemo/easytrade/db
   newTag: latest
 - name: ghcr.io/arctiqdynatracedemo/easytrade/engine
