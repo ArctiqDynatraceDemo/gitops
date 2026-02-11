@@ -12,5 +12,5 @@ spec:
     repoURL: 'https://github.com/ArctiqDynatraceDemo/gitops'
     targetRevision: HEAD
   destination:
-    namespace: default
+    namespace: easytrade-dev
     server: 'https://kubernetes.default.svc'

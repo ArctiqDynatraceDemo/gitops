@@ -1,45 +1,46 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: easytrade-easytrade-ephemeral-655352fc-3
+namespace: easytrade-dev
 
 resources:
-- ../../base
+- ../base
+- lb.yaml
 
 images:
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/accountservice"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/aggregator-service"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/broker-service"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/calculationservice"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/db"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/engine"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/feature-flag-service"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/frontend"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/frontendreverseproxy"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/loadgen"
-    newTag: "latest"
+    newTag: "655352fc780f1cb92883269d3ea7729d3c6e0f19"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/loginservice"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/manager"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/offerservice"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/pricing-service"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/problem-operator"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/rabbitmq"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/third-party-service"
-    newTag: "latest"
+    newTag: "0167c18804cdff15060e9398d00a4e8bd4392f38"
