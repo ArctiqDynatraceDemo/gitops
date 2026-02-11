@@ -5,7 +5,6 @@ namespace: easytrade-dev
 
 resources:
 - ../base
-- lb.yaml
 
 images:
   - name: "ghcr.io/arctiqdynatracedemo/easytrade/accountservice"

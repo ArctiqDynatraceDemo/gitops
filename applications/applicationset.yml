@@ -8,16 +8,16 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - pullRequest:
-    github:
-      owner: ArctiqDynatraceDemo
-      repo: easytrade
-      tokenRef:
-          secretName: github-token
-          key: token
+      github:
+        owner: ArctiqDynatraceDemo
+        repo: easytrade
+        tokenRef:
+            secretName: github-token
+            key: token
       requeueAfterSeconds: 60
   template:
     metadata:
-      name: "Preview - PR #{{.number}}"
+      name: "easytrade-preview-pr-{{.number}}"
       annotations:
         image: "ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service"
         tag: "pr.{{.number}}-sha.{{.head_short_sha}}"
@@ -29,8 +29,7 @@ spec:
         path: easytrade/dev
         kustomize:
           images:
-            - name: "ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service"
-              newTag: "pr.{{.number}}-sha.{{.head_short_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service:pr.{{.number}}-sha.{{.head_short_sha}}"
       destination:
         server: https://kubernetes.default.svc
         namespace: 'easytrade-preview-pr-{{.number}}'
