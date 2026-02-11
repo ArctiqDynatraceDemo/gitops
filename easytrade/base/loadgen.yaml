@@ -13,6 +13,8 @@ spec:
       labels:
         app: loadgen
     spec:
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: loadgen
           image: ghcr.io/arctiqdynatracedemo/easytrade/loadgen:fa6ccf2

@@ -11,6 +11,8 @@ spec:
       labels:
         app: calculationservice
     spec:
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: calculationservice
           image: ghcr.io/arctiqdynatracedemo/easytrade/calculationservice:fa6ccf2

@@ -11,6 +11,8 @@ spec:
       labels:
         app: rabbitmq
     spec:
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: rabbitmq
           image: ghcr.io/arctiqdynatracedemo/easytrade/rabbitmq:fa6ccf2

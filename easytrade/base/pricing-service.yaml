@@ -11,6 +11,8 @@ spec:
       labels:
         app: pricing-service
     spec:
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: pricing-service
           image: ghcr.io/arctiqdynatracedemo/easytrade/pricing-service:fa6ccf2

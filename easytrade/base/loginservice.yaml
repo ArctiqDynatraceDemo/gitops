@@ -11,6 +11,8 @@ spec:
       labels:
         app: loginservice
     spec:
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: loginservice
           image: ghcr.io/arctiqdynatracedemo/easytrade/loginservice:fa6ccf2

@@ -11,6 +11,8 @@ spec:
       labels:
         app: engine
     spec:
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: engine
           image: ghcr.io/arctiqdynatracedemo/easytrade/engine:fa6ccf2

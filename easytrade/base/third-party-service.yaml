@@ -11,6 +11,8 @@ spec:
       labels:
         app: third-party-service
     spec:
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: third-party-service
           image: ghcr.io/arctiqdynatracedemo/easytrade/third-party-service:fa6ccf2

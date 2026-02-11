@@ -11,6 +11,8 @@ spec:
       labels:
         app: contentcreator
     spec:
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: contentcreator
           image: ghcr.io/arctiqdynatracedemo/easytrade/contentcreator:fa6ccf2

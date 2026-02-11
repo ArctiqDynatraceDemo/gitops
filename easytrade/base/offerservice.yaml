@@ -21,6 +21,8 @@ spec:
       labels:
         app: offerservice
     spec:
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: offerservice
           image: ghcr.io/arctiqdynatracedemo/easytrade/offerservice:fa6ccf2

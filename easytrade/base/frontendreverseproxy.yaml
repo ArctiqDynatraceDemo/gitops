@@ -11,6 +11,8 @@ spec:
       labels:
         app: frontendreverseproxy
     spec:
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: frontendreverseproxy
           image: ghcr.io/arctiqdynatracedemo/easytrade/frontendreverseproxy:fa6ccf2

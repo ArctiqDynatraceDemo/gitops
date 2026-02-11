@@ -11,6 +11,8 @@ spec:
       labels:
         app: manager
     spec:
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: manager
           image: ghcr.io/arctiqdynatracedemo/easytrade/manager:fa6ccf2

@@ -41,6 +41,8 @@ spec:
         app: problem-operator
     spec:
       serviceAccountName: problem-operator-service-account
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: problem-operator
           image: ghcr.io/arctiqdynatracedemo/easytrade/problem-operator:fa6ccf2

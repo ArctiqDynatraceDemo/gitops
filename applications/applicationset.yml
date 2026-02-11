@@ -18,9 +18,11 @@ spec:
   template:
     metadata:
       name: "easytrade-preview-pr-{{.number}}"
-      annotations:
-        image: "ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service"
+      labels:
+        image: "credit-card-order-service"
         tag: "pr.{{.number}}-sha.{{.head_short_sha}}"
+      annotations:
+        kargo.akuity.io/authorized-stage: "easytrade:preview"
     spec:
       project: "default"
       source:

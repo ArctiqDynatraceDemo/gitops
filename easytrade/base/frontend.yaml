@@ -11,6 +11,8 @@ spec:
       labels:
         app: frontend
     spec:
+      imagePullSecrets:
+        - name: ghcr-auth
       containers:
         - name: frontend
           image: ghcr.io/arctiqdynatracedemo/easytrade/frontend:fa6ccf2
