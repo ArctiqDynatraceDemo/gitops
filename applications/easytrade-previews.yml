@@ -30,7 +30,15 @@ spec:
         targetRevision: HEAD
         path: easytrade/dev
         kustomize:
-          namespace: 'easytrade-preview-pr-{{.number}}'
+          namePrefix: "pr-{{.number}}-"
+          patches:
+          - target:
+              kind: Warehouse
+              name: easytrade-credit-card
+            patch: |-
+              - op: add
+                path: /spec/subscriptions/0/image/allowTagsRegexes
+                value: "^pr.{{.number}}-"
           images:
             - "ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service:pr.{{.number}}-sha.{{.head_short_sha}}"
       destination:

@@ -1,5 +1,6 @@
 namespace: argocd
 
 resources:
+  - applications.yml
   - easytrade.yml
-  - applicationset.yml
+  - easytrade-previews.yml

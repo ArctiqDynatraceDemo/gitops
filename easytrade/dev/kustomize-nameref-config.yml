@@ -1,0 +1,5 @@
+nameReference:
+  - kind: Warehouse
+    fieldSpecs:
+      - kind: Stage
+        path: spec/requestedFreight/origin/name
