@@ -28,11 +28,9 @@ spec:
       source:
         repoURL: https://github.com/ArctiqDynatraceDemo/gitops
         targetRevision: HEAD
-        path: easytrade/dev
+        path: easytrade/previews
         kustomize:
           namePrefix: "pr-{{.number}}-"
-          resources:
-            - kargo.yml
           patches:
           - target:
               kind: Warehouse
