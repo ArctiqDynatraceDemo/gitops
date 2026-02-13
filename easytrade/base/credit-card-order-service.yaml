@@ -1,11 +1,19 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: credit-card-order-service
 spec:
+  replicas: 1
+
+  # Label selector for pods. Existing ReplicaSets whose pods are selected by
+  # this will be the ones affected by this rollout. It must match the pod
+  # template's labels.
   selector:
     matchLabels:
       app: credit-card-order-service
+
+  # Template describes the pods that will be created. Same as deployment.
+  # If used, then do not use Rollout workloadRef property.
   template:
     metadata:
       labels:
@@ -41,6 +49,11 @@ spec:
               memory: 650Mi
             limits:
               memory: 650Mi
+
+  # Minimum number of seconds for which a newly created pod should be ready
+  # without any of its container crashing, for it to be considered available.
+  # Defaults to 0 (pod will be considered available as soon as it is ready)
+  minReadySeconds: 15
 ---
 apiVersion: v1
 kind: Service

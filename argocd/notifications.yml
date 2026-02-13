@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-notifications-cm
+  namespace: argocd
+data:
+  # GitHub notifier (uses a GitHub App)
+  service.github: |
+    appID: 2861001
+    installationID: 109994388
+    privateKey: $github-privateKey
+
+  # Optional but recommended so targetURL can link back to Argo CD UI
+  context: |
+    argocdUrl: http://localhost:8080
+
+  # Template: set commit status on *code repo*, not the config repo
+  template.preview-validation-status: |
+    message: |
+      Preview validation for {{.app.metadata.name}}: {{.app.status.operationState.phase}}
+    github:
+      repoURLPath: "{{.app.metadata.annotations['preview.argoproj.io/code-repo-url']}}"
+      revisionPath: "{{.app.metadata.annotations['preview.argoproj.io/code-revision']}}"
+      status:
+        label: "preview/validation"
+        targetURL: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
+        state: >
+          {{- if eq .app.status.operationState.phase "Succeeded" -}}success
+          {{- else if eq .app.status.operationState.phase "Failed" -}}failure
+          {{- else if eq .app.status.operationState.phase "Error" -}}error
+          {{- else -}}pending{{- end -}}
+
+  # Triggers
+  trigger.on-preview-validation-succeeded: |
+    - when: app.metadata.labels['preview'] == 'true' && app.status?.operationState.phase in ['Succeeded']
+      send: [preview-validation-status]
+
+  trigger.on-preview-validation-failed: |
+    - when: app.metadata.labels['preview'] == 'true' && app.status?.operationState.phase in ['Failed','Error']
+      send: [preview-validation-status]
+
+  trigger.on-preview-validation-running: |
+    - when: app.metadata.labels['preview'] == 'true' && app.status?.operationState.phase in ['Running']
+      send: [preview-validation-status]

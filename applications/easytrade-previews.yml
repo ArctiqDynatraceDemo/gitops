@@ -21,8 +21,14 @@ spec:
       labels:
         image: "credit-card-order-service"
         tag: "pr.{{.number}}-sha.{{.head_short_sha}}"
+        preview: "true"
       annotations:
         kargo.akuity.io/authorized-stage: "easytrade:pr-{{.number}}-preview"
+        preview.argoproj.io/code-repo-url: "https://github.com/arctiqdynatracedemo/easytrade.git"
+        preview.argoproj.io/code-revision: "{{head_sha}}"
+        notifications.argoproj.io/subscribe.on-preview-validation-succeeded.github: ""
+        notifications.argoproj.io/subscribe.on-preview-validation-failed.github: ""
+        notifications.argoproj.io/subscribe.on-preview-validation-running.github: ""
     spec:
       project: "default"
       source:

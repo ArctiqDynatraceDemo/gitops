@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
 - ../dev
-- kargo.yml
+- analysis.yml
 
 configurations:
 - kustomize-nameref-config.yml
