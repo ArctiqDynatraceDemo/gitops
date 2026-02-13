@@ -31,13 +31,15 @@ spec:
         path: easytrade/dev
         kustomize:
           namePrefix: "pr-{{.number}}-"
+          resources:
+            - kargo.yml
           patches:
           - target:
               kind: Warehouse
               name: easytrade-credit-card
             patch: |-
               - op: add
-                path: /spec/subscriptions/0/image/allowTagsRegexes
+                path: /spec/subscriptions/0/image/allowTagsRegexes/-
                 value: "^pr.{{.number}}-"
           images:
             - "ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service:pr.{{.number}}-sha.{{.head_short_sha}}"
