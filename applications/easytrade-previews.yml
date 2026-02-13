@@ -22,7 +22,7 @@ spec:
         image: "credit-card-order-service"
         tag: "pr.{{.number}}-sha.{{.head_short_sha}}"
       annotations:
-        kargo.akuity.io/authorized-stage: "easytrade:pr-{{.number}}-easytrade-credit-card"
+        kargo.akuity.io/authorized-stage: "easytrade:pr-{{.number}}-preview"
     spec:
       project: "default"
       source:
