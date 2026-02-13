@@ -3,8 +3,10 @@ resources:
   # - https://github.com/cert-manager/cert-manager/releases/download/v3.3.0/cert-manager.yaml
   - ../applications/
 
+namespace: argocd
+
 patches:
   - path: argo-cm.yml
   - path: argo-rbac-cm.yml
-  # - patch: rollout-extension.yml
-  - patch: notifications.yml
+  - path: rollout-extension.yml
+  - path: notifications.yml
