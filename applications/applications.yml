@@ -5,7 +5,7 @@ metadata:
 spec:
   project: default
   source:
-    path: argocd
+    path: applications
     repoURL: 'https://github.com/ArctiqDynatraceDemo/gitops'
     targetRevision: HEAD
   destination:
