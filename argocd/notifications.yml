@@ -18,8 +18,8 @@ data:
     message: |
       Preview validation for {{.app.metadata.name}}: {{.app.status.operationState.phase}}
     github:
-      repoURLPath: "{{.app.metadata.annotations['preview.argoproj.io/code-repo-url']}}"
-      revisionPath: "{{.app.metadata.annotations['preview.argoproj.io/code-revision']}}"
+      repoURLPath: "{{ index .app.metadata.annotations "preview.argoproj.io/code-repo-url" }}"
+      revisionPath: "{{ index .app.metadata.annotations "preview.argoproj.io/code-revision" }}"
       status:
         label: "preview/validation"
         targetURL: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
@@ -31,13 +31,13 @@ data:
 
   # Triggers
   trigger.on-preview-validation-succeeded: |
-    - when: app.metadata.labels['preview'] == 'true' && app.status?.operationState.phase in ['Succeeded']
+    - when: index app.metadata.labels "preview" == "true" && app.status?.operationState.phase in ['Succeeded']
       send: [preview-validation-status]
 
   trigger.on-preview-validation-failed: |
-    - when: app.metadata.labels['preview'] == 'true' && app.status?.operationState.phase in ['Failed','Error']
+    - when: index app.metadata.labels "preview" == "true" && app.status?.operationState.phase in ['Failed','Error']
       send: [preview-validation-status]
 
   trigger.on-preview-validation-running: |
-    - when: app.metadata.labels['preview'] == 'true' && app.status?.operationState.phase in ['Running']
+    - when: index app.metadata.labels "preview" == "true" && app.status?.operationState.phase in ['Running']
       send: [preview-validation-status]
