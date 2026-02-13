@@ -25,7 +25,7 @@ spec:
       annotations:
         kargo.akuity.io/authorized-stage: "easytrade:pr-{{.number}}-preview"
         preview.argoproj.io/code-repo-url: "https://github.com/arctiqdynatracedemo/easytrade.git"
-        preview.argoproj.io/code-revision: "{{head_sha}}"
+        preview.argoproj.io/code-revision: "{{.head_sha}}"
         notifications.argoproj.io/subscribe.on-preview-validation-succeeded.github: ""
         notifications.argoproj.io/subscribe.on-preview-validation-failed.github: ""
         notifications.argoproj.io/subscribe.on-preview-validation-running.github: ""
