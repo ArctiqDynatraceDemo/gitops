@@ -30,7 +30,7 @@ data:
           {{- else -}}pending{{- end -}}
       pullRequestComment:
           content: |
-            {{- if eq app.status?.operationState.phase "Succeeded" -}}
+            {{- if eq app.status.operationState.phase "Succeeded" -}}
             :green_circle: Application **{{.app.metadata.name}}** has been successfully *synced* at {{.app.status.operationState.startedAt}}.
             {{- else if eq .app.status.operationState.phase "Failed" -}}
             :red_circle: Application **{{.app.metadata.name}}** sync has failed at {{.app.status.operationState.startedAt}}.
@@ -63,7 +63,7 @@ data:
 
   # Triggers
   trigger.on-preview-validation-succeeded: |
-    - when: app.metadata.labels["preview"] == "true" && app.status?.operationState.phase in ['Succeeded'] && time.Now().Sub(time.Parse(app.status?.operationState.finishedAt)).Minutes() <= 5
+    - when: app.metadata.labels["preview"] == "true" && app.status?.operationState.phase in ['Succeeded'] && time.Now().Sub(time.Parse(app.status?.operationState.finishedAt)).Minutes() <= 5 && time.Now().Sub(time.Parse(app.status?.operationState.finishedAt)).Minutes() >= 1
       send: [preview-validation-status]
       oncePer: app.metadata.annotations["preview.argoproj.io/code-revision"]
 
