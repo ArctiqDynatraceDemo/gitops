@@ -61,4 +61,3 @@ data:
   trigger.on-preview-validation-running: |
     - when: app.metadata.labels["preview"] == "true" && app.status?.operationState.phase in ['Running']
       send: [preview-validation-status]
-      oncePer: app.metadata.annotations["preview.argoproj.io/code-revision"]
