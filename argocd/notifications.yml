@@ -31,13 +31,13 @@ data:
 
   # Triggers
   trigger.on-preview-validation-succeeded: |
-    - when: index app.metadata.labels "preview" == "true" && app.status?.operationState.phase in ['Succeeded']
+    - when: app.metadata.labels["preview"] == "true" && app.status?.operationState.phase in ['Succeeded']
       send: [preview-validation-status]
 
   trigger.on-preview-validation-failed: |
-    - when: index app.metadata.labels "preview" == "true" && app.status?.operationState.phase in ['Failed','Error']
+    - when: app.metadata.labels["preview"] == "true" && app.status?.operationState.phase in ['Failed','Error']
       send: [preview-validation-status]
 
   trigger.on-preview-validation-running: |
-    - when: index app.metadata.labels "preview" == "true" && app.status?.operationState.phase in ['Running']
+    - when: app.metadata.labels["preview"] == "true" && app.status?.operationState.phase in ['Running']
       send: [preview-validation-status]
