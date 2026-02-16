@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: easytrade-ephemerals
+  name: easytrade-dev
   namespace: argocd
 spec:
   goTemplate: true
@@ -15,17 +15,16 @@ spec:
             secretName: github-token
             key: token
         labels:
-        - preview
+        - release-pending
       requeueAfterSeconds: 60
   template:
     metadata:
-      name: "easytrade-preview-pr-{{.number}}"
+      name: "easytrade-dev"
       labels:
         image: "credit-card-order-service"
         tag: "{{.head_sha}}"
         preview: "true"
       annotations:
-        kargo.akuity.io/authorized-stage: "easytrade:pr-{{.number}}-preview"
         preview.argoproj.io/code-repo-url: "https://github.com/arctiqdynatracedemo/easytrade.git"
         preview.argoproj.io/code-revision: "{{.head_sha}}"
         notifications.argoproj.io/subscribe.on-preview-validation-succeeded.github: ""
@@ -42,7 +41,7 @@ spec:
             - "ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service:{{.head_sha}}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'easytrade-preview-pr-{{.number}}'
+        namespace: 'easytrade-dev'
       syncPolicy:
         automated:
           enabled: true
