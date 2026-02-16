@@ -49,7 +49,7 @@ data:
 
   # Triggers
   trigger.on-preview-validation-succeeded: |
-    - when: app.metadata.labels["preview"] == "true" && app.status?.operationState.phase in ['Succeeded'] && time.Now().Sub(time.Parse(app.status?.operationState.startedAt)).Minutes() <= 5
+    - when: app.metadata.labels["preview"] == "true" && app.status?.operationState.phase in ['Succeeded'] && time.Now().Sub(time.Parse(app.status?.operationState.finishedAt)).Minutes() <= 5
       send: [preview-validation-status]
       oncePer: app.metadata.annotations["preview.argoproj.io/code-revision"]
 
