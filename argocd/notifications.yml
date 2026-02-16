@@ -29,10 +29,24 @@ data:
           {{- else if eq .app.status.operationState.phase "Error" -}}error
           {{- else -}}pending{{- end -}}
       pullRequestComment:
-        content: |
-          Application {{.app.metadata.name}} is now running new version of deployments manifests.
-          See more here: {{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true
-        commentTag: "continuous-delivery/{{.app.metadata.name}}"
+          content: |
+            {{- if eq app.status?.operationState.phase "Succeeded" -}}
+            :green_circle: Application **{{.app.metadata.name}}** has been successfully *synced* at {{.app.status.operationState.startedAt}}.
+            {{- else if eq .app.status.operationState.phase "Failed" -}}
+            :red_circle: Application **{{.app.metadata.name}}** sync has failed at {{.app.status.operationState.startedAt}}.
+            {{- else if eq .app.status.operationState.phase "Error" -}}
+            :red_circle: Application **{{.app.metadata.name}}** sync encountered an error at {{.app.status.operationState.startedAt}}.
+            {{- else if eq .app.status.operationState.phase "Running" -}}
+            :yellow_circle: Application **{{.app.metadata.name}}** sync and validation started at {{.app.status.operationState.startedAt}}.
+            {{- end -}}
+            {{- if .app.status.summary.externalURLs }}
+              {{- range .app.status.summary.externalURLs }}
+            :arrow_right: :globe_with_meridians: {{ . }}
+              {{- end }}
+            {{- else }}
+            :warning: :globe_with_meridians: No external URLs found.
+            {{- end }}
+            :worm: See the details in [ArgoCD]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}).
       checkRun:
         name: "continuous-delivery/{{.app.metadata.name}}"
         details_url: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
