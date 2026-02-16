@@ -29,6 +29,7 @@ data:
           {{- else if eq .app.status.operationState.phase "Error" -}}error
           {{- else -}}pending{{- end -}}
       pullRequestComment:
+          commentTag: "continuous-delivery/{{.app.metadata.name}}"
           content: |
             {{- if eq .app.status.operationState.phase "Succeeded" -}}
             :green_circle: Application **{{.app.metadata.name}}** has been successfully *synced* at {{.app.status.operationState.startedAt}}.
