@@ -30,7 +30,7 @@ data:
           {{- else -}}pending{{- end -}}
       pullRequestComment:
           content: |
-            {{- if eq app.status.operationState.phase "Succeeded" -}}
+            {{- if eq .app.status.operationState.phase "Succeeded" -}}
             :green_circle: Application **{{.app.metadata.name}}** has been successfully *synced* at {{.app.status.operationState.startedAt}}.
             {{- else if eq .app.status.operationState.phase "Failed" -}}
             :red_circle: Application **{{.app.metadata.name}}** sync has failed at {{.app.status.operationState.startedAt}}.
