@@ -19,7 +19,13 @@ data:
       Preview validation for {{.app.metadata.name}}: {{.app.status.operationState.phase}}
     github:
       repoURLPath: '{{ index .app.metadata.annotations "preview.argoproj.io/code-repo-url" }}'
-      revisionPath: '{{ index (splitList ":" (index .app.status.summary.images 0)) 1 }}'
+      revisionPath: >
+        {{- range .app.status.summary.images -}}
+          {{- if (hasPrefix . "ghcr.io/arctiqdynatracedemo/easytrade") -}}
+            {{- index (splitList ":" .) 1 -}}
+            {{- break -}}
+          {{- end -}}
+        {{- end -}}
       status:
         label: "preview/validation"
         targetURL: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
@@ -48,6 +54,19 @@ data:
             :warning: :globe_with_meridians: No external URLs found.
             {{- end }}
             :worm: See the details in [ArgoCD]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}).
+      checkRun:
+        name: "continuous-delivery/{{.app.metadata.name}}"
+        details_url: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
+        status: completed
+        conclusion: success
+        started_at: "YYYY-MM-DDTHH:MM:SSZ"
+        completed_at: "YYYY-MM-DDTHH:MM:SSZ"
+        output:
+          title: "Deployment of {{.app.metadata.name}} on ArgoCD"
+          summary: "Application {{.app.metadata.name}} is now running new version of deployments manifests."
+          text: |
+            Application {{.app.metadata.name}} is now running new version of deployments manifests.
+            See more here: {{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true
 
   # Triggers
   trigger.on-preview-validation-succeeded: |
