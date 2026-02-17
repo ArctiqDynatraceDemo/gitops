@@ -1,49 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
+kind: Application
 metadata:
-  name: easytrade-dev
-  namespace: argocd
+  name: "easytrade-dev"
+  annotations:
+    kargo.akuity.io/authorized-stage: "easytrade:dev"
+    preview.argoproj.io/code-repo-url: "https://github.com/arctiqdynatracedemo/easytrade.git"
+    notifications.argoproj.io/subscribe.on-preview-validation-succeeded.github: ""
+    notifications.argoproj.io/subscribe.on-preview-validation-failed.github: ""
+    notifications.argoproj.io/subscribe.on-preview-validation-running.github: ""
 spec:
-  goTemplate: true
-  goTemplateOptions: ["missingkey=error"]
-  generators:
-  - pullRequest:
-      github:
-        owner: ArctiqDynatraceDemo
-        repo: easytrade
-        tokenRef:
-            secretName: github-token
-            key: token
-        labels:
-        - release-pending
-      requeueAfterSeconds: 60
-  template:
-    metadata:
-      name: "easytrade-dev"
-      labels:
-        image: "credit-card-order-service"
-        tag: "{{.head_sha}}"
-        preview: "true"
-      annotations:
-        preview.argoproj.io/code-repo-url: "https://github.com/arctiqdynatracedemo/easytrade.git"
-        preview.argoproj.io/code-revision: "{{.head_sha}}"
-        notifications.argoproj.io/subscribe.on-preview-validation-succeeded.github: ""
-        notifications.argoproj.io/subscribe.on-preview-validation-failed.github: ""
-        notifications.argoproj.io/subscribe.on-preview-validation-running.github: ""
-    spec:
-      project: "default"
-      source:
-        repoURL: https://github.com/ArctiqDynatraceDemo/gitops
-        targetRevision: HEAD
-        path: easytrade/previews
-        kustomize:
-          images:
-            - "ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service:{{.head_sha}}"
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: 'easytrade-dev'
-      syncPolicy:
-        automated:
-          enabled: true
-      
+  project: "default"
+  source:
+    repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+    targetRevision: HEAD
+    path: easytrade/previews
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: 'easytrade-dev'
+  syncPolicy:
+    automated:
+      enabled: true
       

@@ -1,0 +1,2063 @@
+apiVersion: v1
+items:
+- apiVersion: argoproj.io/v1alpha1
+  kind: Application
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: applications:argoproj.io/Application:argocd/applications
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"applications:argoproj.io/Application:argocd/applications"},"name":"applications","namespace":"argocd"},"spec":{"destination":{"namespace":"argocd","server":"https://kubernetes.default.svc"},"project":"default","source":{"path":"applications","repoURL":"https://github.com/ArctiqDynatraceDemo/gitops","targetRevision":"HEAD"}}}
+    creationTimestamp: "2026-02-13T14:07:41Z"
+    generation: 3322
+    name: applications
+    namespace: argocd
+    resourceVersion: "1771344774283615023"
+    uid: 22374e14-b206-4a88-b8aa-7f19367befdc
+  spec:
+    destination:
+      namespace: argocd
+      server: https://kubernetes.default.svc
+    project: default
+    source:
+      path: applications
+      repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+      targetRevision: HEAD
+  status:
+    controllerNamespace: argocd
+    health:
+      lastTransitionTime: "2026-02-16T22:28:54Z"
+      status: Healthy
+    history:
+    - deployStartedAt: "2026-02-13T14:14:49Z"
+      deployedAt: "2026-02-13T14:14:50Z"
+      id: 0
+      initiatedBy:
+        username: admin
+      revision: 78e953f4ff1c31e366258986d3046b95255e1af0
+      source:
+        path: applications
+        repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+        targetRevision: HEAD
+    - deployStartedAt: "2026-02-13T14:19:09Z"
+      deployedAt: "2026-02-13T14:19:10Z"
+      id: 1
+      initiatedBy:
+        username: admin
+      revision: f5e4ce348ffb1014164a8188ccbc8ea663b8137a
+      source:
+        path: applications
+        repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+        targetRevision: HEAD
+    - deployStartedAt: "2026-02-13T14:27:10Z"
+      deployedAt: "2026-02-13T14:27:11Z"
+      id: 2
+      initiatedBy:
+        username: admin
+      revision: 7cf6ddbca716f1c0081cf677683e230e7215e966
+      source:
+        path: applications
+        repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+        targetRevision: HEAD
+    - deployStartedAt: "2026-02-13T14:30:05Z"
+      deployedAt: "2026-02-13T14:30:06Z"
+      id: 3
+      initiatedBy:
+        username: admin
+      revision: a4245c49b67aec85ada345bae69cc860123d6f7e
+      source:
+        path: applications
+        repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+        targetRevision: HEAD
+    - deployStartedAt: "2026-02-13T22:07:06Z"
+      deployedAt: "2026-02-13T22:07:08Z"
+      id: 4
+      initiatedBy:
+        username: admin
+      revision: 3024814786849bfd36c1419f8e16a28198dc5ae9
+      source:
+        path: applications
+        repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+        targetRevision: HEAD
+    - deployStartedAt: "2026-02-13T22:10:57Z"
+      deployedAt: "2026-02-13T22:10:59Z"
+      id: 5
+      initiatedBy:
+        username: admin
+      revision: 21c2024959d6cd1ca523ef3aa73e44a0842864bf
+      source:
+        path: applications
+        repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+        targetRevision: HEAD
+    - deployStartedAt: "2026-02-16T18:28:59Z"
+      deployedAt: "2026-02-16T18:29:00Z"
+      id: 6
+      initiatedBy:
+        username: admin
+      revision: ff679c0831e9217f26cb827e96da107aa1bc064d
+      source:
+        path: applications
+        repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+        targetRevision: HEAD
+    - deployStartedAt: "2026-02-16T19:50:19Z"
+      deployedAt: "2026-02-16T19:50:21Z"
+      id: 7
+      initiatedBy:
+        username: admin
+      revision: ee95be5e3a5871f7c1dbaad4d3e136f2246e7fad
+      source:
+        path: applications
+        repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+        targetRevision: HEAD
+    - deployStartedAt: "2026-02-16T22:28:52Z"
+      deployedAt: "2026-02-16T22:28:54Z"
+      id: 8
+      initiatedBy:
+        username: admin
+      revision: 33db083c761902b6a0db4f262d8117b46376c36f
+      source:
+        path: applications
+        repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+        targetRevision: HEAD
+    operationState:
+      finishedAt: "2026-02-16T22:28:54Z"
+      message: successfully synced (all tasks run)
+      operation:
+        initiatedBy:
+          username: admin
+        retry: {}
+        sync:
+          revision: 33db083c761902b6a0db4f262d8117b46376c36f
+          source:
+            path: applications
+            repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+            targetRevision: HEAD
+          syncStrategy:
+            hook: {}
+      phase: Succeeded
+      startedAt: "2026-02-16T22:28:52Z"
+      syncResult:
+        resources:
+        - group: argoproj.io
+          hookPhase: Running
+          kind: Application
+          message: application.argoproj.io/applications configured
+          name: applications
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1alpha1
+        - group: argoproj.io
+          hookPhase: Running
+          kind: Application
+          message: application.argoproj.io/argocd configured
+          name: argocd
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1alpha1
+        - group: argoproj.io
+          hookPhase: Running
+          kind: ApplicationSet
+          message: applicationset.argoproj.io/easytrade-ephemerals configured
+          name: easytrade-ephemerals
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1alpha1
+        - group: argoproj.io
+          hookPhase: Running
+          kind: ApplicationSet
+          message: applicationset.argoproj.io/easytrade-dev created
+          name: easytrade-dev
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1alpha1
+        revision: 33db083c761902b6a0db4f262d8117b46376c36f
+        source:
+          path: applications
+          repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+          targetRevision: HEAD
+    reconciledAt: "2026-02-17T16:12:54Z"
+    resourceHealthSource: appTree
+    resources:
+    - group: argoproj.io
+      kind: Application
+      name: applications
+      namespace: argocd
+      status: Synced
+      version: v1alpha1
+    - group: argoproj.io
+      kind: Application
+      name: argocd
+      namespace: argocd
+      status: Synced
+      version: v1alpha1
+    - group: argoproj.io
+      kind: ApplicationSet
+      name: easytrade-dev
+      namespace: argocd
+      status: Synced
+      version: v1alpha1
+    - group: argoproj.io
+      kind: ApplicationSet
+      name: easytrade-ephemerals
+      namespace: argocd
+      status: Synced
+      version: v1alpha1
+    sourceHydrator: {}
+    sourceType: Kustomize
+    summary: {}
+    sync:
+      comparedTo:
+        destination:
+          namespace: argocd
+          server: https://kubernetes.default.svc
+        source:
+          path: applications
+          repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+          targetRevision: HEAD
+      revision: 33db083c761902b6a0db4f262d8117b46376c36f
+      status: Synced
+- apiVersion: argoproj.io/v1alpha1
+  kind: Application
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: applications:argoproj.io/Application:argocd/argocd
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"applications:argoproj.io/Application:argocd/argocd"},"name":"argocd","namespace":"argocd"},"spec":{"destination":{"namespace":"argocd","server":"https://kubernetes.default.svc"},"project":"default","source":{"path":"argocd","repoURL":"https://github.com/ArctiqDynatraceDemo/gitops","targetRevision":"HEAD"}}}
+    creationTimestamp: "2026-02-13T22:07:07Z"
+    generation: 2190
+    name: argocd
+    namespace: argocd
+    resourceVersion: "1771344744236975019"
+    uid: 7e016e1f-fb07-4169-9ac3-cf6530fbed57
+  spec:
+    destination:
+      namespace: argocd
+      server: https://kubernetes.default.svc
+    project: default
+    source:
+      path: argocd
+      repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+      targetRevision: HEAD
+  status:
+    conditions:
+    - lastTransitionTime: "2026-02-16T22:28:53Z"
+      message: Application/applications is part of applications argocd/argocd and
+        applications
+      type: SharedResourceWarning
+    - lastTransitionTime: "2026-02-17T16:12:23Z"
+      message: Application/argocd is part of applications argocd/argocd and applications
+      type: SharedResourceWarning
+    - lastTransitionTime: "2026-02-17T16:12:23Z"
+      message: ApplicationSet/easytrade-dev is part of applications argocd/argocd
+        and applications
+      type: SharedResourceWarning
+    - lastTransitionTime: "2026-02-17T16:12:23Z"
+      message: ApplicationSet/easytrade-ephemerals is part of applications argocd/argocd
+        and applications
+      type: SharedResourceWarning
+    controllerNamespace: argocd
+    health:
+      lastTransitionTime: "2026-02-16T18:31:00Z"
+      status: Healthy
+    operationState:
+      finishedAt: "2026-02-16T19:58:42Z"
+      message: 'one or more objects failed to apply, reason: error when patching "/dev/shm/1977114522":
+        CustomResourceDefinition.apiextensions.k8s.io "applicationsets.argoproj.io"
+        is invalid: metadata.annotations: Too long: may not be more than 262144 bytes'
+      operation:
+        initiatedBy:
+          username: admin
+        retry: {}
+        sync:
+          revision: f288fed9778ba49912babfda94afe3a8e04158de
+          source:
+            path: argocd
+            repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+            targetRevision: HEAD
+          syncStrategy:
+            hook: {}
+      phase: Failed
+      startedAt: "2026-02-16T19:58:37Z"
+      syncResult:
+        resources:
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: NetworkPolicy
+          message: networkpolicy.networking.k8s.io/argocd-server-network-policy unchanged
+          name: argocd-server-network-policy
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: NetworkPolicy
+          message: networkpolicy.networking.k8s.io/argocd-redis-network-policy unchanged
+          name: argocd-redis-network-policy
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: NetworkPolicy
+          message: networkpolicy.networking.k8s.io/argocd-applicationset-controller-network-policy
+            unchanged
+          name: argocd-applicationset-controller-network-policy
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: NetworkPolicy
+          message: networkpolicy.networking.k8s.io/argocd-dex-server-network-policy
+            unchanged
+          name: argocd-dex-server-network-policy
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: NetworkPolicy
+          message: networkpolicy.networking.k8s.io/argocd-notifications-controller-network-policy
+            unchanged
+          name: argocd-notifications-controller-network-policy
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: NetworkPolicy
+          message: networkpolicy.networking.k8s.io/argocd-application-controller-network-policy
+            configured
+          name: argocd-application-controller-network-policy
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: NetworkPolicy
+          message: networkpolicy.networking.k8s.io/argocd-repo-server-network-policy
+            configured
+          name: argocd-repo-server-network-policy
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/argocd-server unchanged
+          name: argocd-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/argocd-dex-server unchanged
+          name: argocd-dex-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/argocd-application-controller unchanged
+          name: argocd-application-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/argocd-redis unchanged
+          name: argocd-redis
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/argocd-notifications-controller unchanged
+          name: argocd-notifications-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/argocd-applicationset-controller unchanged
+          name: argocd-applicationset-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/argocd-repo-server unchanged
+          name: argocd-repo-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: Secret
+          message: secret/argocd-notifications-secret unchanged
+          name: argocd-notifications-secret
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: Secret
+          message: secret/argocd-secret unchanged
+          name: argocd-secret
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/argocd-tls-certs-cm unchanged
+          name: argocd-tls-certs-cm
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/argocd-cmd-params-cm unchanged
+          name: argocd-cmd-params-cm
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/argocd-rbac-cm unchanged
+          name: argocd-rbac-cm
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/argocd-gpg-keys-cm unchanged
+          name: argocd-gpg-keys-cm
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/argocd-ssh-known-hosts-cm unchanged
+          name: argocd-ssh-known-hosts-cm
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/argocd-cm unchanged
+          name: argocd-cm
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/argocd-notifications-cm configured
+          name: argocd-notifications-cm
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: customresourcedefinition.apiextensions.k8s.io/appprojects.argoproj.io
+            unchanged
+          name: appprojects.argoproj.io
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: customresourcedefinition.apiextensions.k8s.io/applications.argoproj.io
+            unchanged
+          name: applications.argoproj.io
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Failed
+          kind: CustomResourceDefinition
+          message: 'error when patching "/dev/shm/1977114522": CustomResourceDefinition.apiextensions.k8s.io
+            "applicationsets.argoproj.io" is invalid: metadata.annotations: Too long:
+            may not be more than 262144 bytes'
+          name: applicationsets.argoproj.io
+          namespace: argocd
+          status: SyncFailed
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: clusterrole.rbac.authorization.k8s.io/argocd-application-controller
+            reconciled. clusterrole.rbac.authorization.k8s.io/argocd-application-controller
+            unchanged
+          name: argocd-application-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: clusterrole.rbac.authorization.k8s.io/argocd-applicationset-controller
+            reconciled. clusterrole.rbac.authorization.k8s.io/argocd-applicationset-controller
+            unchanged
+          name: argocd-applicationset-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: clusterrole.rbac.authorization.k8s.io/argocd-server reconciled.
+            clusterrole.rbac.authorization.k8s.io/argocd-server unchanged
+          name: argocd-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: clusterrolebinding.rbac.authorization.k8s.io/argocd-application-controller
+            reconciled. clusterrolebinding.rbac.authorization.k8s.io/argocd-application-controller
+            unchanged
+          name: argocd-application-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: clusterrolebinding.rbac.authorization.k8s.io/argocd-server reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io/argocd-server unchanged
+          name: argocd-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: clusterrolebinding.rbac.authorization.k8s.io/argocd-applicationset-controller
+            reconciled. clusterrolebinding.rbac.authorization.k8s.io/argocd-applicationset-controller
+            unchanged
+          name: argocd-applicationset-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: Role
+          message: role.rbac.authorization.k8s.io/argocd-applicationset-controller
+            reconciled. role.rbac.authorization.k8s.io/argocd-applicationset-controller
+            unchanged
+          name: argocd-applicationset-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: Role
+          message: role.rbac.authorization.k8s.io/argocd-notifications-controller
+            reconciled. role.rbac.authorization.k8s.io/argocd-notifications-controller
+            unchanged
+          name: argocd-notifications-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: Role
+          message: role.rbac.authorization.k8s.io/argocd-server reconciled. role.rbac.authorization.k8s.io/argocd-server
+            unchanged
+          name: argocd-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: Role
+          message: role.rbac.authorization.k8s.io/argocd-application-controller reconciled.
+            role.rbac.authorization.k8s.io/argocd-application-controller unchanged
+          name: argocd-application-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: Role
+          message: role.rbac.authorization.k8s.io/argocd-redis reconciled. role.rbac.authorization.k8s.io/argocd-redis
+            unchanged
+          name: argocd-redis
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: Role
+          message: role.rbac.authorization.k8s.io/argocd-dex-server reconciled. role.rbac.authorization.k8s.io/argocd-dex-server
+            unchanged
+          name: argocd-dex-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: rolebinding.rbac.authorization.k8s.io/argocd-applicationset-controller
+            reconciled. rolebinding.rbac.authorization.k8s.io/argocd-applicationset-controller
+            unchanged
+          name: argocd-applicationset-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: rolebinding.rbac.authorization.k8s.io/argocd-application-controller
+            reconciled. rolebinding.rbac.authorization.k8s.io/argocd-application-controller
+            unchanged
+          name: argocd-application-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: rolebinding.rbac.authorization.k8s.io/argocd-notifications-controller
+            reconciled. rolebinding.rbac.authorization.k8s.io/argocd-notifications-controller
+            unchanged
+          name: argocd-notifications-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: rolebinding.rbac.authorization.k8s.io/argocd-server reconciled.
+            rolebinding.rbac.authorization.k8s.io/argocd-server unchanged
+          name: argocd-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: rolebinding.rbac.authorization.k8s.io/argocd-redis reconciled.
+            rolebinding.rbac.authorization.k8s.io/argocd-redis unchanged
+          name: argocd-redis
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: rolebinding.rbac.authorization.k8s.io/argocd-dex-server reconciled.
+            rolebinding.rbac.authorization.k8s.io/argocd-dex-server unchanged
+          name: argocd-dex-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: Service
+          message: service/argocd-dex-server unchanged
+          name: argocd-dex-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: Service
+          message: service/argocd-repo-server unchanged
+          name: argocd-repo-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: Service
+          message: service/argocd-server unchanged
+          name: argocd-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: Service
+          message: service/argocd-notifications-controller-metrics unchanged
+          name: argocd-notifications-controller-metrics
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: Service
+          message: service/argocd-metrics unchanged
+          name: argocd-metrics
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: Service
+          message: service/argocd-applicationset-controller unchanged
+          name: argocd-applicationset-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: Service
+          message: service/argocd-redis unchanged
+          name: argocd-redis
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Running
+          kind: Service
+          message: service/argocd-server-metrics unchanged
+          name: argocd-server-metrics
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          images:
+          - ghcr.io/dexidp/dex:v2.43.0
+          kind: Deployment
+          message: deployment.apps/argocd-dex-server unchanged
+          name: argocd-dex-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          images:
+          - quay.io/argoproj/argocd:v3.3.0
+          kind: Deployment
+          message: deployment.apps/argocd-repo-server unchanged
+          name: argocd-repo-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          images:
+          - quay.io/argoproj/argocd:v3.3.0
+          kind: Deployment
+          message: deployment.apps/argocd-notifications-controller unchanged
+          name: argocd-notifications-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          images:
+          - public.ecr.aws/docker/library/redis:8.2.3-alpine
+          kind: Deployment
+          message: deployment.apps/argocd-redis unchanged
+          name: argocd-redis
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          images:
+          - quay.io/argoproj/argocd:v3.3.0
+          kind: Deployment
+          message: deployment.apps/argocd-applicationset-controller unchanged
+          name: argocd-applicationset-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          images:
+          - quay.io/argoproj/argocd:v3.3.0
+          kind: Deployment
+          message: deployment.apps/argocd-server unchanged
+          name: argocd-server
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          images:
+          - quay.io/argoproj/argocd:v3.3.0
+          kind: StatefulSet
+          message: statefulset.apps/argocd-application-controller unchanged
+          name: argocd-application-controller
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: argoproj.io
+          hookPhase: Running
+          kind: Application
+          message: application.argoproj.io/easytrade-dev configured
+          name: easytrade-dev
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1alpha1
+        - group: argoproj.io
+          hookPhase: Running
+          kind: Application
+          message: application.argoproj.io/applications configured
+          name: applications
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1alpha1
+        - group: argoproj.io
+          hookPhase: Running
+          kind: Application
+          message: application.argoproj.io/argocd configured
+          name: argocd
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1alpha1
+        - group: argoproj.io
+          hookPhase: Running
+          kind: ApplicationSet
+          message: applicationset.argoproj.io/easytrade-ephemerals configured
+          name: easytrade-ephemerals
+          namespace: argocd
+          status: Synced
+          syncPhase: Sync
+          version: v1alpha1
+        revision: f288fed9778ba49912babfda94afe3a8e04158de
+        source:
+          path: argocd
+          repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+          targetRevision: HEAD
+    reconciledAt: "2026-02-17T16:12:23Z"
+    resourceHealthSource: appTree
+    resources:
+    - kind: ConfigMap
+      name: argocd-cm
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: argocd-cmd-params-cm
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: argocd-gpg-keys-cm
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: argocd-notifications-cm
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ConfigMap
+      name: argocd-rbac-cm
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: argocd-ssh-known-hosts-cm
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: argocd-tls-certs-cm
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: Secret
+      name: argocd-notifications-secret
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: Secret
+      name: argocd-secret
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: Service
+      name: argocd-applicationset-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: Service
+      name: argocd-dex-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: Service
+      name: argocd-metrics
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: Service
+      name: argocd-notifications-controller-metrics
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: Service
+      name: argocd-redis
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: Service
+      name: argocd-repo-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: Service
+      name: argocd-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: Service
+      name: argocd-server-metrics
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-application-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-applicationset-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-dex-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-notifications-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-redis
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-repo-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: applications.argoproj.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: applicationsets.argoproj.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: appprojects.argoproj.io
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: argocd-applicationset-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: argocd-dex-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: argocd-notifications-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: argocd-redis
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: argocd-repo-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: argocd-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: apps
+      kind: StatefulSet
+      name: argocd-application-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: argoproj.io
+      kind: Application
+      name: applications
+      namespace: argocd
+      status: OutOfSync
+      version: v1alpha1
+    - group: argoproj.io
+      kind: Application
+      name: argocd
+      namespace: argocd
+      status: OutOfSync
+      version: v1alpha1
+    - group: argoproj.io
+      kind: ApplicationSet
+      name: easytrade-dev
+      namespace: argocd
+      status: OutOfSync
+      version: v1alpha1
+    - group: argoproj.io
+      kind: ApplicationSet
+      name: easytrade-ephemerals
+      namespace: argocd
+      status: OutOfSync
+      version: v1alpha1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-application-controller-network-policy
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-applicationset-controller-network-policy
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-dex-server-network-policy
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-notifications-controller-network-policy
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-redis-network-policy
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-repo-server-network-policy
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-server-network-policy
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: argocd-application-controller
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: argocd-applicationset-controller
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: argocd-server
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: argocd-application-controller
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: argocd-applicationset-controller
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: argocd-server
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: argocd-application-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: argocd-applicationset-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: argocd-dex-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: argocd-notifications-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: argocd-redis
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: argocd-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argocd-application-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argocd-applicationset-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argocd-dex-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argocd-notifications-controller
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argocd-redis
+      namespace: argocd
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argocd-server
+      namespace: argocd
+      status: Synced
+      version: v1
+    sourceHydrator: {}
+    sourceType: Kustomize
+    summary:
+      images:
+      - ghcr.io/dexidp/dex:v2.43.0
+      - public.ecr.aws/docker/library/redis:8.2.3-alpine
+      - public.ecr.aws/dynatrace/dynatrace-operator:v1.7.2@sha256:88a1aafe4cfc11353bd760cb89523c35d48bc376fca562c1f0d4508b82ff9e0f
+      - quay.io/argoproj/argocd:v3.3.0
+      - quay.io/argoprojlabs/argocd-extension-installer:v0.0.8
+    sync:
+      comparedTo:
+        destination:
+          namespace: argocd
+          server: https://kubernetes.default.svc
+        source:
+          path: argocd
+          repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+          targetRevision: HEAD
+      revision: 33db083c761902b6a0db4f262d8117b46376c36f
+      status: OutOfSync
+- apiVersion: argoproj.io/v1alpha1
+  kind: Application
+  metadata:
+    annotations:
+      argo.octopus.com/environment: dev
+      argo.octopus.com/project: easytrade
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{"argo.octopus.com/environment":"dev","argo.octopus.com/project":"easytrade"},"name":"easytrade","namespace":"argocd"},"spec":{"destination":{"namespace":"default","server":"https://kubernetes.default.svc"},"project":"default","source":{"path":"kubernetes-manifests/release","repoURL":"https://github.com/ArctiqDynatraceDemo/easytrade","targetRevision":"HEAD"}}}
+    creationTimestamp: "2026-02-10T21:12:15Z"
+    generation: 3412
+    name: easytrade
+    namespace: argocd
+    resourceVersion: "1771344657746463009"
+    uid: c76a7ba8-cc72-45e3-8c6b-ec0060d8dd74
+  spec:
+    destination:
+      namespace: default
+      server: https://kubernetes.default.svc
+    project: default
+    source:
+      path: kubernetes-manifests/release
+      repoURL: https://github.com/ArctiqDynatraceDemo/easytrade
+      targetRevision: HEAD
+  status:
+    conditions:
+    - lastTransitionTime: "2026-02-17T16:06:52Z"
+      message: 'Failed to load target state: failed to generate manifest for source
+        1 of 1: rpc error: code = Unknown desc = Manifest generation error (cached):
+        kubernetes-manifests/release: app path does not exist'
+      type: ComparisonError
+    controllerNamespace: argocd
+    health:
+      lastTransitionTime: "2026-02-10T21:12:18Z"
+      status: Healthy
+    reconciledAt: "2026-02-17T16:10:57Z"
+    resourceHealthSource: appTree
+    sync:
+      comparedTo:
+        destination:
+          namespace: default
+          server: https://kubernetes.default.svc
+        source:
+          path: kubernetes-manifests/release
+          repoURL: https://github.com/ArctiqDynatraceDemo/easytrade
+          targetRevision: HEAD
+      revision: HEAD
+      status: Unknown
+- apiVersion: argoproj.io/v1alpha1
+  kind: Application
+  metadata:
+    annotations:
+      notifications.argoproj.io/subscribe.on-preview-validation-failed.github: ""
+      notifications.argoproj.io/subscribe.on-preview-validation-running.github: ""
+      notifications.argoproj.io/subscribe.on-preview-validation-succeeded.github: ""
+      notified.notifications.argoproj.io: '{"338da683d94cdbf25d9c021c5162173d17659fdc:on-preview-validation-failed:[0].R03__PpY6LnBg9A6yacOx33m8UU:github:":1771281071,"338da683d94cdbf25d9c021c5162173d17659fdc:on-preview-validation-running:[0].cl-VbcfzXxPpAeNyCke4fKmIYq8:github:":1771280995}'
+      preview.argoproj.io/code-repo-url: https://github.com/arctiqdynatracedemo/easytrade.git
+      preview.argoproj.io/code-revision: 338da683d94cdbf25d9c021c5162173d17659fdc
+    creationTimestamp: "2026-02-11T15:28:21Z"
+    finalizers:
+    - resources-finalizer.argocd.argoproj.io
+    generation: 2879
+    labels:
+      image: credit-card-order-service
+      preview: "true"
+      tag: 338da683d94cdbf25d9c021c5162173d17659fdc
+    name: easytrade-dev
+    namespace: argocd
+    ownerReferences:
+    - apiVersion: argoproj.io/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ApplicationSet
+      name: easytrade-dev
+      uid: 02174042-ab59-4454-bf85-93ee88101e5f
+    resourceVersion: "1771344651331567000"
+    uid: ed46468f-0135-4487-8600-5bde927f5797
+  spec:
+    destination:
+      namespace: easytrade-dev
+      server: https://kubernetes.default.svc
+    project: default
+    source:
+      kustomize:
+        images:
+        - ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service:338da683d94cdbf25d9c021c5162173d17659fdc
+      path: easytrade/previews
+      repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+      targetRevision: HEAD
+    syncPolicy:
+      automated:
+        enabled: true
+  status:
+    conditions:
+    - lastTransitionTime: "2026-02-16T22:33:17Z"
+      message: Namespace/easytrade is part of applications argocd/easytrade-dev and
+        easytrade-preview-pr-14
+      type: SharedResourceWarning
+    - lastTransitionTime: "2026-02-16T22:41:20Z"
+      message: 'Failed last sync attempt to [33db083c761902b6a0db4f262d8117b46376c36f]:
+        one or more synchronization tasks completed unsuccessfully'
+      type: SyncError
+    controllerNamespace: argocd
+    health:
+      lastTransitionTime: "2026-02-16T22:41:20Z"
+      status: Degraded
+    operationState:
+      finishedAt: "2026-02-16T22:41:20Z"
+      message: one or more synchronization tasks completed unsuccessfully
+      operation:
+        initiatedBy:
+          username: admin
+        retry: {}
+        sync:
+          revision: 33db083c761902b6a0db4f262d8117b46376c36f
+          source:
+            kustomize:
+              images:
+              - ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service:338da683d94cdbf25d9c021c5162173d17659fdc
+            path: easytrade/previews
+            repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+            targetRevision: HEAD
+          syncStrategy:
+            hook: {}
+      phase: Failed
+      startedAt: "2026-02-16T22:31:14Z"
+      syncResult:
+        resources:
+        - group: ""
+          hookPhase: Succeeded
+          kind: Namespace
+          message: namespace/easytrade unchanged
+          name: easytrade
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: ServiceAccount
+          message: serviceaccount/problem-operator-service-account created
+          name: problem-operator-service-account
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: ConfigMap
+          message: configmap/broker-service-envs created
+          name: broker-service-envs
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: ConfigMap
+          message: configmap/connection-strings created
+          name: connection-strings
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: ConfigMap
+          message: configmap/feature-flag-service-setup created
+          name: feature-flag-service-setup
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: ConfigMap
+          message: configmap/rabbitmq-vars created
+          name: rabbitmq-vars
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: ConfigMap
+          message: configmap/aggregator-service-envs created
+          name: aggregator-service-envs
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: ConfigMap
+          message: configmap/offerservice-envs created
+          name: offerservice-envs
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: Role
+          message: "role.rbac.authorization.k8s.io/problem-operator-role reconciled.
+            reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get
+            list watch create delete patch update] APIGroups:[] Resources:[services
+            pods events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list
+            watch create delete patch update] APIGroups:[apps] Resources:[deployments
+            replicasets] ResourceNames:[] NonResourceURLs:[]}. role.rbac.authorization.k8s.io/problem-operator-role
+            configured. Warning: resource roles/problem-operator-role is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is required
+            by  apply.  apply should only be used on resources created declaratively
+            by either  create --save-config or  apply. The missing annotation will
+            be patched automatically."
+          name: problem-operator-role
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: RoleBinding
+          message: "rolebinding.rbac.authorization.k8s.io/problem-operator-role-binding
+            reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount
+            APIGroup: Name:problem-operator-service-account Namespace:}. rolebinding.rbac.authorization.k8s.io/problem-operator-role-binding
+            configured. Warning: resource rolebindings/problem-operator-role-binding
+            is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+            which is required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing annotation
+            will be patched automatically."
+          name: problem-operator-role-binding
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/db created
+          name: db
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/credit-card-order-service created
+          name: credit-card-order-service
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/accountservice created
+          name: accountservice
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/engine created
+          name: engine
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/pricing-service created
+          name: pricing-service
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/frontend created
+          name: frontend
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/rabbitmq created
+          name: rabbitmq
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/manager created
+          name: manager
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/frontendreverseproxy-easytrade created
+          name: frontendreverseproxy-easytrade
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/loginservice created
+          name: loginservice
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/third-party-service created
+          name: third-party-service
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/offerservice created
+          name: offerservice
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ""
+          hookPhase: Succeeded
+          kind: Service
+          message: service/broker-service created
+          name: broker-service
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/loadgen:655352fc780f1cb92883269d3ea7729d3c6e0f19
+          kind: Deployment
+          message: deployment.apps/loadgen created
+          name: loadgen
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/engine:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/engine created
+          name: engine
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/manager:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/manager created
+          name: manager
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Failed
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service:338da683d94cdbf25d9c021c5162173d17659fdc
+          kind: Deployment
+          message: Deployment "credit-card-order-service" exceeded its progress deadline
+          name: credit-card-order-service
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/accountservice:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/accountservice created
+          name: accountservice
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/calculationservice:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/calculationservice created
+          name: calculationservice
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/loginservice:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/loginservice created
+          name: loginservice
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Failed
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/third-party-service:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: Deployment "third-party-service" exceeded its progress deadline
+          name: third-party-service
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/db:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/db created
+          name: db
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/broker-service:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/broker-service created
+          name: broker-service
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/pricing-service:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/pricing-service created
+          name: pricing-service
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/offerservice:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/offerservice created
+          name: offerservice
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/aggregator-service:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/aggregator-service created
+          name: aggregator-service
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/frontend:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/frontend created
+          name: frontend
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/rabbitmq:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/rabbitmq created
+          name: rabbitmq
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          images:
+          - ghcr.io/arctiqdynatracedemo/easytrade/problem-operator:0167c18804cdff15060e9398d00a4e8bd4392f38
+          kind: Deployment
+          message: deployment.apps/problem-operator created
+          name: problem-operator
+          namespace: easytrade-dev
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        revision: 33db083c761902b6a0db4f262d8117b46376c36f
+        source:
+          kustomize:
+            images:
+            - ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service:338da683d94cdbf25d9c021c5162173d17659fdc
+          path: easytrade/previews
+          repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+          targetRevision: HEAD
+    reconciledAt: "2026-02-17T16:10:51Z"
+    resourceHealthSource: appTree
+    resources:
+    - kind: ConfigMap
+      name: aggregator-service-envs
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: broker-service-envs
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: connection-strings
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: feature-flag-service-setup
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: offerservice-envs
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: rabbitmq-vars
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Namespace
+      name: easytrade
+      status: OutOfSync
+      version: v1
+    - kind: Service
+      name: accountservice
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Service
+      name: broker-service
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Service
+      name: credit-card-order-service
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Service
+      name: db
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Service
+      name: engine
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Service
+      name: frontend
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Service
+      name: frontendreverseproxy-easytrade
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Service
+      name: loginservice
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Service
+      name: manager
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Service
+      name: offerservice
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Service
+      name: pricing-service
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Service
+      name: rabbitmq
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: Service
+      name: third-party-service
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: problem-operator-service-account
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: accountservice
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: aggregator-service
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: broker-service
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: calculationservice
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: credit-card-order-service
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: db
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: engine
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: frontend
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: loadgen
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: loginservice
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: manager
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: offerservice
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: pricing-service
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: problem-operator
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: rabbitmq
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: apps
+      kind: Deployment
+      name: third-party-service
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: problem-operator-role
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: problem-operator-role-binding
+      namespace: easytrade-dev
+      status: Synced
+      version: v1
+    sourceHydrator: {}
+    sourceType: Kustomize
+    summary:
+      images:
+      - ghcr.io/arctiqdynatracedemo/easytrade/accountservice:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/aggregator-service:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/broker-service:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/calculationservice:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service:338da683d94cdbf25d9c021c5162173d17659fdc
+      - ghcr.io/arctiqdynatracedemo/easytrade/db:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/engine:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/frontend:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/loadgen:655352fc780f1cb92883269d3ea7729d3c6e0f19
+      - ghcr.io/arctiqdynatracedemo/easytrade/loginservice:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/manager:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/offerservice:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/pricing-service:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/problem-operator:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/rabbitmq:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - ghcr.io/arctiqdynatracedemo/easytrade/third-party-service:0167c18804cdff15060e9398d00a4e8bd4392f38
+      - public.ecr.aws/dynatrace/dynatrace-operator:v1.7.2@sha256:88a1aafe4cfc11353bd760cb89523c35d48bc376fca562c1f0d4508b82ff9e0f
+    sync:
+      comparedTo:
+        destination:
+          namespace: easytrade-dev
+          server: https://kubernetes.default.svc
+        source:
+          kustomize:
+            images:
+            - ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service:338da683d94cdbf25d9c021c5162173d17659fdc
+          path: easytrade/previews
+          repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+          targetRevision: HEAD
+      revision: 33db083c761902b6a0db4f262d8117b46376c36f
+      status: OutOfSync
+kind: List
+metadata:
+  resourceVersion: ""

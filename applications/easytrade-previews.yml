@@ -21,13 +21,9 @@ spec:
     metadata:
       name: "easytrade-preview-pr-{{.number}}"
       labels:
-        image: "credit-card-order-service"
-        tag: "{{.head_sha}}"
         preview: "true"
       annotations:
-        kargo.akuity.io/authorized-stage: "easytrade:pr-{{.number}}-preview"
         preview.argoproj.io/code-repo-url: "https://github.com/arctiqdynatracedemo/easytrade.git"
-        preview.argoproj.io/code-revision: "{{.head_sha}}"
         notifications.argoproj.io/subscribe.on-preview-validation-succeeded.github: ""
         notifications.argoproj.io/subscribe.on-preview-validation-failed.github: ""
         notifications.argoproj.io/subscribe.on-preview-validation-running.github: ""
@@ -39,7 +35,24 @@ spec:
         path: easytrade/previews
         kustomize:
           images:
+            - "ghcr.io/arctiqdynatracedemo/easytrade/accountservice:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/aggregator-service:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/broker-service:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/calculationservice:{{.head_sha}}"
             - "ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/db:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/engine:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/feature-flag-service:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/frontend:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/frontendreverseproxy:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/loadgen:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/loginservice:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/manager:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/offerservice:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/pricing-service:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/problem-operator:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/rabbitmq:{{.head_sha}}"
+            - "ghcr.io/arctiqdynatracedemo/easytrade/third-party-service:{{.head_sha}}"
       destination:
         server: https://kubernetes.default.svc
         namespace: 'easytrade-preview-pr-{{.number}}'
