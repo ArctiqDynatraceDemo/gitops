@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: "easytrade-qa"
+  namespace: argocd
+  annotations:
+    kargo.akuity.io/authorized-stage: "easytrade:qa"
+    preview.argoproj.io/code-repo-url: "https://github.com/arctiqdynatracedemo/easytrade.git"
+    notifications.argoproj.io/subscribe.on-preview-validation-succeeded.github: ""
+    notifications.argoproj.io/subscribe.on-preview-validation-failed.github: ""
+    notifications.argoproj.io/subscribe.on-preview-validation-running.github: ""
+spec:
+  project: "default"
+  source:
+    repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+    targetRevision: HEAD
+    path: easytrade/deploy/qa
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: 'easytrade-qa'
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
