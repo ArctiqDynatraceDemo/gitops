@@ -22,7 +22,7 @@ data:
       revisionPath: >
         {{- range .app.status.summary.images }}
           {{- if (hasPrefix . "ghcr.io/arctiqdynatracedemo/easytrade") }}
-            {{- index ($parts := splitList ":" .) 1 -}}
+            {{- index (splitList ":" .) 1 -}}
             {{break}}
           {{- end }}
         {{- end }}
