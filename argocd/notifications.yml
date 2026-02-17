@@ -15,18 +15,17 @@ data:
 
   # Template: set commit status on *code repo*, not the config repo
   template.preview-validation-status: |
-    {{- $easytradeImageTag := "" -}}
-    {{- range .app.status.summary.images }}
-      {{- if and (eq $easytradeImageTag "") (hasPrefix . "ghcr.io/arctiqdynatracedemo/easytrade") }}
-        {{- $parts := splitList ":" . -}}
-        {{- $easytradeImageTag = index $parts 1 -}}
-      {{- end }}
-    {{- end }}
     message: |
       Preview validation for {{.app.metadata.name}}: {{.app.status.operationState.phase}}
     github:
       repoURLPath: '{{ index .app.metadata.annotations "preview.argoproj.io/code-repo-url" }}'
-      revisionPath: '{{ $easytradeImageTag }}'
+      revisionPath: >
+        {{- range .app.status.summary.images }}
+          {{- if and (eq $easytradeImageTag "") (hasPrefix . "ghcr.io/arctiqdynatracedemo/easytrade") }}
+            {{- index ($parts := splitList ":" .) 1 -}}
+            {{break}}
+          {{- end }}
+        {{- end }}
       status:
         label: "preview/validation"
         targetURL: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
