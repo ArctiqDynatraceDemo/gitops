@@ -19,13 +19,7 @@ data:
       Preview validation for {{.app.metadata.name}}: {{.app.status.operationState.phase}}
     github:
       repoURLPath: '{{ index .app.metadata.annotations "preview.argoproj.io/code-repo-url" }}'
-      revisionPath: >
-        {{- range .app.status.summary.images }}
-          {{- if (hasPrefix . "ghcr.io/arctiqdynatracedemo/easytrade") }}
-            {{- index (splitList ":" .) 1 -}}
-            {{break}}
-          {{- end }}
-        {{- end }}
+      revisionPath: '{{ index (splitList ":" (index .app.status.summary.images 0)) 1) }}'
       status:
         label: "preview/validation"
         targetURL: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
