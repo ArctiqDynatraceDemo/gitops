@@ -23,7 +23,7 @@ data:
         {{- $tag := "" -}}
         {{- range .app.status.summary.images -}}
           {{- if and (eq $tag "") (hasPrefix "ghcr.io/arctiqdynatracedemo/easytrade" .) -}}
-            {{- $tag = index (splitList ":" .) 1 -}}
+            {{- $tag = index (splitList "sha." .) 1 -}}
           {{- end -}}
         {{- end -}}
         {{- $tag -}}

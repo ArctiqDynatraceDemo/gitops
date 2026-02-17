@@ -20,4 +20,3 @@ spec:
   syncPolicy:
     automated:
       enabled: true
-      
