@@ -9,8 +9,9 @@ spec:
   subscriptions:
     - image:
         allowTagsRegexes:
-          - \d+\.\d+\.\d+\-dev-
+          - ^\d+\.\d+\.\d+\$
         cacheByTag: false
         discoveryLimit: 20
-        imageSelectionStrategy: NewestBuild
+        imageSelectionStrategy: SemVer
         repoURL: ghcr.io/arctiqdynatracedemo/easytrade/manager
+        strictSemvers: true
