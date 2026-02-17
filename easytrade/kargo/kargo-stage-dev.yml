@@ -1,0 +1,104 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Stage
+metadata:
+  name: dev
+  namespace: easytrade
+spec:
+  requestedFreight:
+    - origin:
+        kind: Warehouse
+        name: easytrade-dev-builds
+      sources:
+        direct: true
+        stages: []
+  verification:
+    analysisTemplates:
+    - name: integration-test
+  promotionTemplate:
+    spec:
+      vars:
+        - name: imageRepo
+          value: ghcr.io/arctiqdynatracedemo/easytrade/manager
+      steps:
+        - uses: git-clone
+          config:
+            checkout:
+              - branch: main
+            repoURL: https://github.com/arctiqdynatracedemo/gitops.git
+        - uses: kustomize-set-image
+          config:
+            path: easytrade/deploy/dev
+            images:
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/accountservice
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/aggregator-service
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/broker-service
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/calculationservice
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/credit-card-order-service
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/db
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/engine
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/feature-flag-service
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/frontend
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/frontendreverseproxy
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/loadgen
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/loginservice
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/manager
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/offerservice
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/pricing-service
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/problem-operator
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/rabbitmq
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/third-party-service
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
+        - uses: git-commit
+          config:
+            message: Updated dev environment to ${{ imageFrom(vars.imageRepo).Tag }}
+        - uses: git-push
+        - uses: argocd-update
+          config:
+            apps:
+              - name: easytrade-dev
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: integration-test
+  namespace: easytrade
+spec:
+  metrics:
+  - name: wait-60-seconds
+    successCondition: status.succeeded > 0
+    failureLimit: 1
+    provider:
+      job:
+        spec:
+          backoffLimit: 0
+          template:
+            spec:
+              restartPolicy: Never
+              containers:
+              - name: wait
+                image: busybox:1.36
+                command:
+                - sh
+                - -c
+                - |
+                  echo "Starting 60s validation..."
+                  sleep 60
+                  echo "Validation complete."
+                  exit 0

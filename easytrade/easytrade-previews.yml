@@ -32,8 +32,9 @@ spec:
       source:
         repoURL: https://github.com/ArctiqDynatraceDemo/gitops
         targetRevision: HEAD
-        path: easytrade/previews
+        path: easytrade/deploy/previews
         kustomize:
+          namespace: "easytrade-preview-pr-{{.number}}"
           images:
             - "ghcr.io/arctiqdynatracedemo/easytrade/accountservice:pr.{{.number}}-sha.{{.head_short_sha}}"
             - "ghcr.io/arctiqdynatracedemo/easytrade/aggregator-service:pr.{{.number}}-sha.{{.head_short_sha}}"

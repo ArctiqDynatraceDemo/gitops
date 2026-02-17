@@ -1,0 +1,16 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Warehouse
+metadata:
+  name: easytrade-release-builds
+  namespace: easytrade
+spec:
+  freightCreationPolicy: Automatic
+  interval: 5m0s
+  subscriptions:
+    - image:
+        allowTagsRegexes:
+          - \d+\.\d+\.\d+\-dev-
+        cacheByTag: false
+        discoveryLimit: 20
+        imageSelectionStrategy: NewestBuild
+        repoURL: ghcr.io/arctiqdynatracedemo/easytrade/manager

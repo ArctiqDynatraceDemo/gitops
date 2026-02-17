@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/ArctiqDynatraceDemo/gitops
     targetRevision: HEAD
-    path: easytrade/previews
+    path: easytrade/deploy/dev
   destination:
     server: https://kubernetes.default.svc
     namespace: 'easytrade-dev'

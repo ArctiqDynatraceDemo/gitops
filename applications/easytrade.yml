@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: "easytrade"
+spec:
+  project: "default"
+  source:
+    repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+    targetRevision: HEAD
+    path: easytrade/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: 'easytrade-dev'
+  syncPolicy:
+    automated:
+      enabled: true
