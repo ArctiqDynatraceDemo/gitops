@@ -25,7 +25,7 @@ spec:
             checkout:
               - branch: main
                 path: gitops
-            repoURL: https://github.com/ArctiqDynatraceDemo/easytrade/
+            repoURL: https://github.com/arctiqdynatracedemo/gitops.git
         - uses: kustomize-set-image
           config:
             path: gitops/easytrade/deploy/dev
