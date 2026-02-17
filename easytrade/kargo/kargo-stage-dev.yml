@@ -24,6 +24,7 @@ spec:
           config:
             checkout:
               - branch: main
+                path: easytrade
             repoURL: https://github.com/arctiqdynatracedemo/gitops.git
         - uses: kustomize-set-image
           config:
