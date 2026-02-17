@@ -1,6 +1,7 @@
 resources:
   - kargo-project.yml
   - kargo-warehouse-dev.yml
+  - kargo-warehouse-release.yml
   - kargo-stage-dev.yml
   - kargo-stage-qa.yml
   - kargo-stage-uat.yml
