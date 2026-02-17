@@ -21,11 +21,11 @@ spec:
           config:
             checkout:
               - branch: main
-                path: easytrade
+                path: gitops
             repoURL: https://github.com/arctiqdynatracedemo/gitops.git
         - uses: kustomize-set-image
           config:
-            path: easytrade/deploy/prod
+            path: gitops/easytrade/deploy/prod
             images:
               - image: ghcr.io/arctiqdynatracedemo/easytrade/accountservice
                 tag: ${{ imageFrom(vars.imageRepo).Tag }}
