@@ -19,13 +19,16 @@ data:
       Preview validation for {{.app.metadata.name}}: {{.app.status.operationState.phase}}
     github:
       repoURLPath: '{{ index .app.metadata.annotations "preview.argoproj.io/code-repo-url" }}'
-      revisionPath: >
+      revisionPath: >-
+        {{- $tag := "" -}}
         {{- range .app.status.summary.images -}}
-          {{- if (hasPrefix . "ghcr.io/arctiqdynatracedemo/easytrade") -}}
-            {{- index (splitList ":" .) 1 -}}
-            {{- break -}}
+          {{- if and (eq $tag "") (hasPrefix . "ghcr.io/arctiqdynatracedemo/easytrade") -}}
+            {{- $img := (splitList "@" . | first) -}}              {{/* drop digest if present */}}
+            {{- $parts := splitList ":" $img -}}
+            {{- $tag = index $parts (sub (len $parts) 1) -}}       {{/* last segment after : */}}
           {{- end -}}
         {{- end -}}
+        {{- $tag -}}
       status:
         label: "preview/validation"
         targetURL: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
