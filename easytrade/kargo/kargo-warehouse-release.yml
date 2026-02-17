@@ -8,8 +8,6 @@ spec:
   interval: 5m0s
   subscriptions:
     - image:
-        allowTagsRegexes:
-          - ^\d+\.\d+\.\d+\$
         cacheByTag: false
         discoveryLimit: 20
         imageSelectionStrategy: SemVer
