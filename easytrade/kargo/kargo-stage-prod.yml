@@ -10,7 +10,6 @@ spec:
         name: easytrade-release-builds
       sources:
         stages:
-          - qa
           - uat
   promotionTemplate:
     spec:
