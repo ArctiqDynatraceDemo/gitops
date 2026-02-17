@@ -68,11 +68,8 @@ spec:
                 tag: ${{ imageFrom(vars.imageRepo).Tag }}
         - uses: git-commit
           config:
-            path: gitops
             message: Updated dev environment to ${{ imageFrom(vars.imageRepo).Tag }}
         - uses: git-push
-          config:
-            path: gitops
         - uses: argocd-update
           config:
             apps:
