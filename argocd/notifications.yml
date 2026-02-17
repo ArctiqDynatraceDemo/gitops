@@ -22,10 +22,8 @@ data:
       revisionPath: >-
         {{- $tag := "" -}}
         {{- range .app.status.summary.images -}}
-          {{- if and (eq $tag "") (hasPrefix . "ghcr.io/arctiqdynatracedemo/easytrade") -}}
-            {{- $img := (splitList "@" . | first) -}}              {{/* drop digest if present */}}
-            {{- $parts := splitList ":" $img -}}
-            {{- $tag = index $parts (sub (len $parts) 1) -}}       {{/* last segment after : */}}
+          {{- if and (eq $tag "") (hasPrefix "ghcr.io/arctiqdynatracedemo/easytrade" .) -}}
+            {{- $tag = index (splitList ":" .) 1 -}}
           {{- end -}}
         {{- end -}}
         {{- $tag -}}
