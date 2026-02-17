@@ -1,4 +1,5 @@
 resources:
   - easytrade-dev.yml
   - easytrade-previews.yml
+  - easytrade-qa
   - kargo/
