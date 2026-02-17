@@ -21,7 +21,7 @@ data:
       repoURLPath: '{{ index .app.metadata.annotations "preview.argoproj.io/code-repo-url" }}'
       revisionPath: >
         {{- range .app.status.summary.images }}
-          {{- if and (eq $easytradeImageTag "") (hasPrefix . "ghcr.io/arctiqdynatracedemo/easytrade") }}
+          {{- if (hasPrefix . "ghcr.io/arctiqdynatracedemo/easytrade") }}
             {{- index ($parts := splitList ":" .) 1 -}}
             {{break}}
           {{- end }}
