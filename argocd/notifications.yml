@@ -60,11 +60,14 @@ data:
   trigger.on-preview-validation-succeeded: |
     - when: app.status?.operationState.phase in ['Succeeded'] && time.Now().Sub(time.Parse(app.status?.operationState.finishedAt)).Minutes() <= 5 && time.Now().Sub(time.Parse(app.status?.operationState.finishedAt)).Minutes() >= 1
       send: [preview-validation-status]
+      oncePer: join(app.status.summary.images, "~")
 
   trigger.on-preview-validation-failed: |
     - when: app.status?.operationState.phase in ['Failed','Error']
       send: [preview-validation-status]
+      oncePer: join(app.status.summary.images, "~")
 
   trigger.on-preview-validation-running: |
     - when: app.status?.operationState.phase in ['Running']
       send: [preview-validation-status]
+      oncePer: join(app.status.summary.images, "~")
