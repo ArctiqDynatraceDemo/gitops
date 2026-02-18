@@ -14,7 +14,6 @@ resources:
 - feature-flag-service-setup.yaml
 - frontend.yaml
 - frontendreverseproxy.yaml
-- loadgen.yaml
 - loginservice.yaml
 - manager.yaml
 - offerservice.yaml

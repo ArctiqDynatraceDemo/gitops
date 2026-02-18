@@ -3,6 +3,8 @@ kind: Kustomization
 namespace: easytrade-dev
 resources:
 - ../base
+- loadgen.yaml
+
 images:
 - name: ghcr.io/arctiqdynatracedemo/easytrade/accountservice
   newTag: 1.0.4-dev-sha.855ee974
