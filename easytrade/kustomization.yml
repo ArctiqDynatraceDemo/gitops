@@ -2,4 +2,6 @@ resources:
   - easytrade-dev.yml
   - easytrade-previews.yml
   - easytrade-qa.yml
+  - easytrade-uat.yml
+  - easytrade-prod.yml
   - kargo/
