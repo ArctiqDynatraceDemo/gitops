@@ -66,7 +66,10 @@ spec:
         - uses: git-commit
           config:
             message: Updated prod environment to ${{ imageFrom(vars.imageRepo).Tag }}
+            path: gitops
         - uses: git-push
+          config:
+            path: gitops
         - uses: argocd-update
           config:
             apps:
