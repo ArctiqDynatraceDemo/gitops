@@ -11,11 +11,12 @@ spec:
             - Service
       preconditions:
         all:
-        - key: "{{request.object.metadata.name}}"
-          operator: Exists
+        - key: "{{request.operation}}"
+          operator: NotEquals
+          value: DELETE
       mutate:
         patchStrategicMerge:
           metadata:
             annotations:
-              link.argocd.argoproj.io/external-link: "{{request.object.metadata.name}}-{{request.namespace}}"
+              link.argocd.argoproj.io/external-link: "{{(request.object.metadata.name || request.object.metadata.generateName) }}-{{request.namespace}}"
               tailscale.com/expose: "true"
