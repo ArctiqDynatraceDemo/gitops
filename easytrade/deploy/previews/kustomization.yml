@@ -4,5 +4,4 @@ kind: Kustomization
 resources:
 - ../base
 - analysis.yml
-- namespace.yml
 - loadgen.yaml
