@@ -11,9 +11,8 @@ spec:
             - Service
       preconditions:
         all:
-        - key: "{{request.operation}}"
-          operator: NotEquals
-          value: DELETE
+        - key: "{{request.object.metadata.name}}"
+          operator: Exists
       mutate:
         patchStrategicMerge:
           metadata:
