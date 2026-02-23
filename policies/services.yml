@@ -1,0 +1,17 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: add-argocd-external-link-to-services
+spec:
+  rules:
+    - name: annotate-services
+      match:
+        resources:
+          kinds:
+            - Service
+      mutate:
+        patchStrategicMerge:
+          metadata:
+            annotations:
+              link.argocd.argoproj.io/external-link: "{{request.object.metadata.name}}-{{request.object.metadata.namespace}}"
+              tailscale.com/expose: "true"
