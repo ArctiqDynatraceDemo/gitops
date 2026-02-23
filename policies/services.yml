@@ -9,6 +9,13 @@ spec:
         resources:
           kinds:
             - Service
+      exclude:
+        resources:
+          namespaces:
+            - tailscale
+            - kube-system
+            - kyverno
+            - argocd
       preconditions:
         all:
         - key: "{{request.operation}}"
