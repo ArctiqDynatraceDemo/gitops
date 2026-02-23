@@ -25,5 +25,5 @@ spec:
         patchStrategicMerge:
           metadata:
             annotations:
-              link.argocd.argoproj.io/external-link: "{{(request.object.metadata.name || request.object.metadata.generateName) }}-{{request.namespace}}"
+              link.argocd.argoproj.io/external-link: http://"{{(request.object.metadata.name || request.object.metadata.generateName) }}-{{request.namespace}}.tail0ae91.ts.net:{{(request.object.spec.ports[0].port || "80") }}"
               tailscale.com/expose: "true"
