@@ -9,9 +9,14 @@ spec:
         resources:
           kinds:
             - Service
+      preconditions:
+        all:
+        - key: "{{request.operation}}"
+          operator: NotEquals
+          value: DELETE
       mutate:
         patchStrategicMerge:
           metadata:
             annotations:
-              # link.argocd.argoproj.io/external-link: "{{request.object.metadata.name}}-{{request.object.metadata.namespace}}"
+              link.argocd.argoproj.io/external-link: "{{request.object.metadata.name}}-{{request.namespace}}"
               tailscale.com/expose: "true"
