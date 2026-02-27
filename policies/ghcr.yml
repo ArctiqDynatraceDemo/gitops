@@ -16,7 +16,7 @@ spec:
       generate:
         apiVersion: v1
         kind: Secret
-        name: rghcr-auth
+        name: ghcr-auth
         namespace: "{{request.object.metadata.name}}"
         synchronize: true
         clone:
