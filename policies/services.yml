@@ -16,6 +16,7 @@ spec:
             - kube-system
             - kyverno
             - argocd
+            - "*-prod"
       preconditions:
         all:
         - key: "{{request.operation}}"
