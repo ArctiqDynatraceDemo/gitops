@@ -1,3 +1,4 @@
 resources:
+  - roles.yml
   - services.yml
   - ghcr.yml
