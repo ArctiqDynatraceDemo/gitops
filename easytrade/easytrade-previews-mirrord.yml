@@ -37,7 +37,7 @@ spec:
           patches:
             - target:
                 group: preview.mirrord.metalbear.co
-                version: v1alpha1
+                version: v1alpha
                 kind: PreviewSession
                 name: placeholder
               patch: |-
