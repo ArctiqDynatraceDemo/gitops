@@ -1,4 +1,4 @@
-apiVersion: preview.mirrord.metalbear.co/v1alpha1
+apiVersion: preview.mirrord.metalbear.co/v1alpha
 kind: PreviewSession
 metadata:
   name: placeholder
