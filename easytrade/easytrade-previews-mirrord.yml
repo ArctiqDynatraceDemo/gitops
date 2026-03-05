@@ -46,7 +46,7 @@ spec:
                   value: preview-pr-{{.number}}-frontend
                 - op: replace
                   path: /spec/image
-                  value: {{image}}
+                  value: "ghcr.io/arctiqdynatracedemo/easytrade/frontend:pr.{{.number}}-sha.{{.head_sha}}"
                 - op: replace
                   path: /spec/incoming/httpFilter
                   value: '{"header_filter": "baggage: pr-preview={{.number}}"}'
