@@ -1,0 +1,73 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: easytrade-ephemerals
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - pullRequest:
+      github:
+        owner: ArctiqDynatraceDemo
+        repo: easytrade
+        tokenRef:
+            secretName: github-token
+            key: token
+        labels:
+        - "component:frontend"
+      requeueAfterSeconds: 60
+  template:
+    metadata:
+      name: "easytrade-preview-pr-{{.number}}"
+      labels:
+        preview: "true"
+      annotations:
+        preview.argoproj.io/code-repo-url: "https://github.com/arctiqdynatracedemo/easytrade.git"
+        notifications.argoproj.io/subscribe.on-preview-validation-succeeded.github: ""
+        notifications.argoproj.io/subscribe.on-preview-validation-failed.github: ""
+        notifications.argoproj.io/subscribe.on-preview-validation-running.github: ""
+    spec:
+      project: "default"
+      source:
+        repoURL: https://github.com/ArctiqDynatraceDemo/gitops
+        targetRevision: HEAD
+        path: easytrade/deploy/previews-mirrord
+        kustomize:
+          patches:
+            - target:
+                group: preview.mirrord.metalbear.co
+                version: v1alpha1
+                kind: PreviewSession
+                name: placeholder
+              patch: |-
+                - op: replace
+                  path: /metadata/name
+                  value: preview-pr-{{.number}}-frontend
+                - op: replace
+                  path: /spec/image
+                  value: {{image}}
+                - op: replace
+                  path: /spec/incoming/httpFilter
+                  value: '{"header_filter": "baggage: pr-preview={{.number}}"}'
+                - op: replace
+                  path: /spec/key
+                  value: "{{.number}}"
+                - op: replace
+                  path: /spec/ttlSecs
+                  value: 80000
+                - op: replace
+                  path: /spec/target/name
+                  value: frontend
+                - op: replace
+                  path: /spec/target/container
+                  value: frontend
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'easytrade-preview-pr-{{.number}}'
+      syncPolicy:
+        automated:
+          enabled: true
+          prune: true
+      
+      

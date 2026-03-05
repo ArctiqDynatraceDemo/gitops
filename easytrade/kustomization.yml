@@ -1,6 +1,7 @@
 resources:
   - easytrade-dev.yml
   - easytrade-previews.yml
+  - easytrade-previews-mirrord.yml
   - easytrade-qa.yml
   - easytrade-uat.yml
   - easytrade-prod.yml

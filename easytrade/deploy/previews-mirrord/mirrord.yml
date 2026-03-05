@@ -1,0 +1,17 @@
+apiVersion: preview.mirrord.metalbear.co/v1alpha1
+kind: PreviewSession
+metadata:
+  name: placeholder
+  namespace: easytrade-dev
+spec:
+  image: placeholder
+  incoming:
+    httpFilter: placeholder
+    steal: true
+  key: placeholder
+  ttlSecs: 80000
+  target:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: placeholder
+    container: placeholder
