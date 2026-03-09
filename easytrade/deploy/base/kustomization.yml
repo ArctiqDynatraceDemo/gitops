@@ -7,10 +7,11 @@ resources:
 - broker-service.yaml
 - calculationservice.yaml
 - connection-strings.yaml
-# - contentcreator.yaml
+- contentcreator.yaml
 - credit-card-order-service.yaml
 - db.yaml
 - engine.yaml
+- feature-flag-service.yaml
 - feature-flag-service-setup.yaml
 - frontend.yaml
 - frontendreverseproxy.yaml
