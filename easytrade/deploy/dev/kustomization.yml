@@ -41,3 +41,5 @@ images:
   newTag: 1.0.4-dev-sha.8f873343
 - name: ghcr.io/arctiqdynatracedemo/easytrade/third-party-service
   newTag: 1.0.4-dev-sha.8f873343
+- name: ghcr.io/arctiqdynatracedemo/easytrade/contentcreator
+  newTag: 1.0.4-dev-sha.8f873343

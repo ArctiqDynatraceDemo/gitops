@@ -63,6 +63,8 @@ spec:
                 tag: ${{ imageFrom(vars.imageRepo).Tag }}
               - image: ghcr.io/arctiqdynatracedemo/easytrade/third-party-service
                 tag: ${{ imageFrom(vars.imageRepo).Tag }}
+              - image: ghcr.io/arctiqdynatracedemo/easytrade/contentcreator
+                tag: ${{ imageFrom(vars.imageRepo).Tag }}
         - uses: git-commit
           config:
             path: gitops
